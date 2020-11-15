@@ -9,7 +9,8 @@ const Pagination = (props) => {
     return (<nav>
         <ul className="pagination">
             {pages.map(page=> (
-            <li key={page} className="page-item"><a href="ii" 
+            <li key={page} 
+            className= {page===currentPage ? "page-item active" : "page-item"} ><a href="ii" 
             onClick={onPageChange(page)} className="page-link">{page}</a></li>
                 ))} 
          </ul>
