@@ -22,7 +22,8 @@ class Movie extends Component {
         this.setState({movies})
     }
     handlePageChange=(page)=>{
-        //this.setState({currentPage:page})
+        console.log('I am here',page)
+        this.setState({currentPage:page})
     }
     render() { 
         const movies=Paginate(this.state.movies,this.state.currentPage, this.state.pageSize)
@@ -57,7 +58,7 @@ class Movie extends Component {
          <Pagination itemsCount={this.state.movies.length}
           pageSize={this.state.pageSize}
           currentPage={this.state.currentPage}
-          onPageChange={ ()=> this.handlePageChange()}  />
+          onPageChange={this.handlePageChange}  />
         </React.Fragment>
     }
 }
