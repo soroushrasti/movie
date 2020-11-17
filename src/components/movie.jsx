@@ -3,12 +3,19 @@ import {getMovies} from '../services/fakeMovieService.js'
 import Like from './common/Like'
 import Pagination from './common/Paginations'
 import {Paginate} from '../utils/Paginate'
+import ListGroup from './common/listGroup'
+import {getGenres} from '../services/fakeGenreService.js'
 
 class Movie extends Component {
     state = { 
-        movies:getMovies(),
+        movies: [],
+        genres: [],
         pageSize:4,
         currentPage:1 
+    }
+
+    componentDidMount(){
+        this.setState({movies:getMovies(), genres:getGenres})
     }
     
     handleLike=(movie)=>{
@@ -29,7 +36,12 @@ class Movie extends Component {
         const movies=Paginate(this.state.movies,this.state.currentPage, this.state.pageSize)
         if(this.state.movies.length===0)
         return <p>There are no movies in Database</p>
-        return  <React.Fragment>
+        return ( <div className='row'>
+         <div className="clo-3">
+             <ListGroup items={this.state.genres} textProperty='name' valueProperty='_id'   onItemSelect={this.handleGenreSelect} />
+         </div>
+         
+         <div className="col">
         <p>Showing {this.state.movies.length} movies in the Database </p>
         <table className="table">
             <thead>
@@ -59,7 +71,9 @@ class Movie extends Component {
           pageSize={this.state.pageSize}
           currentPage={this.state.currentPage}
           onPageChange={this.handlePageChange}  />
-        </React.Fragment>
+          </div>
+        
+        </div>)
     }
 }
  
