@@ -32,13 +32,18 @@ class Movie extends Component {
         console.log('I am here',page)
         this.setState({currentPage:page})
     }
+    handleGenreSelect=genre=>{
+        this.setState({selectedGenre:genre,
+        currentPage:1})
+    }
     render() { 
         const movies=Paginate(this.state.movies,this.state.currentPage, this.state.pageSize)
         if(this.state.movies.length===0)
         return <p>There are no movies in Database</p>
         return ( <div className='row'>
          <div className="clo-3">
-             <ListGroup items={this.state.genres} textProperty='name' valueProperty='_id'   onItemSelect={this.handleGenreSelect} />
+             <ListGroup selectedItem={this.state.selectedGenre}  items={this.state.genres} textProperty='name' valueProperty='_id'  
+              onItemSelect={this.handleGenreSelect} />
          </div>
          
          <div className="col">
