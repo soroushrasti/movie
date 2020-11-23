@@ -34,7 +34,7 @@ class Movie extends Component {
         this.setState({movies})
     }
     handlePageChange=(page)=>{
-        //console.log('I am here',page)
+        console.log('I am here',page)
         this.setState({currentPage:page})
     }
     handleGenreSelect=genre=>{

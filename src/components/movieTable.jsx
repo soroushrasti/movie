@@ -8,14 +8,17 @@ class MovieTable extends Component {
           {path:'genre.name',label:'Genre'},
           {path:'numberInStock',label:'Stock'},
           {path:'dailyRentalRate',label:'Rate'},
-          {},
-          {}
+          {key:'Like', content:movie=><Like liked={movie.like} 
+          onClick={()=>this.props.onLike(movie)} />},
+          {key:'Delete',content:movie=><button 
+          onClick={()=>this.props.onLike(movie)} />}
       ]
     render() { 
         const {movies, onDelete, onLike}=this.props;
         return ( 
         <table className="table">
-            <TableHeader columns={this.columns}  />
+            <TableHeader columns={this.columns} 
+            sortColumn={this.props.sortColumn} onSort={this.props.onSort} />
     
         <tbody>
         {movies.map(movie=> (

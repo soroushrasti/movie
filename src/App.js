@@ -4,11 +4,11 @@ import { render } from '@testing-library/react';
 
 function App() {
     render() 
-        return(
-    <main className='container'>
-    <Movie />
-    </main>
-        );
+    return(
+       <main className='container'>
+       <Movie />
+       </main>
+       );
   }
 
 
