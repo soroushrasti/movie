@@ -57,7 +57,7 @@ class Movie extends Component {
          
          <div className="col">
         <p>Showing {filtered.length} movies in the Database </p>
-         <MovieTable movies={movies} onLike={this.handleLike} onDelete={this.handleDelete} onSort={this.handleSort} sortColumn={this.sortColumn} />
+         <MovieTable movies={movies} onLike={this.handleLike} onDelete={this.handleDelete} onSort={this.handleSort} sortColumn={this.state.sortColumn} />
          <Pagination itemsCount={filtered.length}
           pageSize={this.state.pageSize}
           currentPage={this.state.currentPage}

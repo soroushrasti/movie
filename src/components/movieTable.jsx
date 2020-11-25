@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import TableHeader from './common/TableHeader'
 import TableBody from './common/TableBody'
 class MovieTable extends Component {
+
       columns=[
           {path:'title',label:'Title'},
           {path:'genre.name',label:'Genre'},
