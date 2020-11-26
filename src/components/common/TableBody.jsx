@@ -12,15 +12,14 @@ class TableBody extends Component {
         const {data,columns}=this.props;
         return ( <tbody>
             {data.map(item=>
-                <tr>
+                <tr key={item._id}>
                     {columns.map(column=>
-                     <td key={this.createKey}>{this.renderCell(item,column)}</td>
+                     <td key={this.createKey(item,column)}>{this.renderCell(item,column)}</td>
                         )}
                         </tr>
                 )}
-        </tbody>
+             </tbody>
           );
     }
 }
- 
 export default TableBody;
