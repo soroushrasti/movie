@@ -13,11 +13,12 @@ class Movie extends Component {
         genres: [],
         pageSize:4,
         currentPage:1,
-        sortColumn:{path:'title',order:'ase'}
+        sortColumn:{path:'title',order:'ase'},
+        selectedGenre:{_id:"",name:"All Genres"}
     }
 
     componentDidMount(){
-        const genre =[{_id:" ",name:"All Genres"},...getGenres()]
+        const genre =[{_id:"",name:"All Genres"},...getGenres()]
         this.setState({movies:getMovies(), genres:genre})
     }
     handleSort=(sortColumn)=>{
@@ -34,7 +35,6 @@ class Movie extends Component {
         this.setState({movies})
     }
     handlePageChange=(page)=>{
-        console.log('I am here',page)
         this.setState({currentPage:page})
     }
     handleGenreSelect=genre=>{
